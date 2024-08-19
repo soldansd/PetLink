@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var auth = Authentication()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if let user = auth.user {
+            UserTabView()
+        } else if let shelter = auth.shelter {
+            ShelterTabView()
+        } else {
+            SignUpView()
+                .environmentObject(auth)
         }
-        .padding()
     }
 }
 

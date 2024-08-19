@@ -8,7 +8,7 @@
 import Foundation
 
 struct Credentials: Codable {
-    let email: String
-    let password: String
-    let type: CustomerType
+    var email: String
+    var password: String
+    var type: CustomerType
 }
